@@ -1,10 +1,10 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-let galleryLightbox;
+const gallery = document.querySelector('.gallery');
+const galleryLightbox = new SimpleLightbox('.gallery a', {});
 
 function galleryItems(images) {
-  const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
 
   const imageItems = images.map(
@@ -33,12 +33,7 @@ function galleryItems(images) {
   );
 
   gallery.insertAdjacentHTML('beforeend', imageItems.join(''));
-
-  if (galleryLightbox) {
-    galleryLightbox.refresh();
-  } else {
-    galleryLightbox = new SimpleLightbox('.gallery a', {});
-  }
+  galleryLightbox.refresh();
 }
 
 export { galleryItems };

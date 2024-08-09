@@ -53,5 +53,8 @@ searchForm.addEventListener('submit', event => {
         backgroundColor: 'red',
         message: 'Error during the request. Please try again later.',
       });
+    })
+    .finally(() => {
+      loader.style.display = 'none';
     });
 });
